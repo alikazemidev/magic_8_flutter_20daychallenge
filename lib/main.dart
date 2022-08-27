@@ -24,8 +24,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int ballNumber = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.blue.shade800,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blue.shade900,
+        title: Text('ask me anything?'),
+      ),
+      body: Center(
+        child: Expanded(
+          child: TextButton(
+              onPressed: () {
+                setState(() {
+                  ballNumber = Random().nextInt(5) + 1;
+                });
+              },
+              child: Image.asset('images/ball$ballNumber.png')),
+        ),
+      ),
+    );
   }
 }
